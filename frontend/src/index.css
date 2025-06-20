@@ -1,0 +1,134 @@
+/* Import a futuristic font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- FUTURISTIC DARK THEME PALETTE --- */
+:root {
+  --background-primary: #0D1117;    /* Deep space black */
+  --background-secondary: #161B22; /* Slightly lighter surface */
+  --surface-glass: rgba(22, 27, 34, 0.6); /* Frosted glass effect */
+  --border-color: #30363D;
+  --primary-accent: #58A6FF;         /* Bright cyber blue */
+  --primary-glow: rgba(88, 166, 255, 0.3);
+  --secondary-accent: #39D39F;       /* Neon green for success */
+  --secondary-glow: rgba(57, 211, 159, 0.3);
+  --error-accent: #F85149;           /* Vibrant red for errors */
+  --text-primary: #C9D1D9;           /* Main text - light gray */
+  --text-secondary: #8B949E;         /* Subtitles and placeholders */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- MAIN CONTENT LAYOUT --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    margin-left: 250px; /* Same as navbar width */
+    transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+        padding-top: 80px; /* Space for fixed top navbar */
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+}
+
+/* --- GLOBAL COMPONENT STYLES --- */
+.card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-accent);
+  color: var(--background-primary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--primary-glow);
+}
+.btn-primary:disabled {
+    background-color: #30363D;
+    color: var(--text-secondary);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+.btn-secondary:hover {
+    background-color: var(--primary-glow);
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--primary-accent);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.error-message {
+    color: #FFFFFF;
+    background-color: rgba(248, 81, 73, 0.3);
+    border: 1px solid var(--error-accent);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.success-message {
+    color: #FFFFFF;
+    background-color: var(--secondary-glow);
+    border: 1px solid var(--secondary-accent);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+}

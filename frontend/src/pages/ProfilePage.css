@@ -1,0 +1,37 @@
+.profile-page h1 {
+    margin-bottom: 1.5rem;
+}
+
+.profile-forms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .profile-forms {
+        grid-template-columns: 1fr;
+    }
+}
+.profile-forms .card h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-forms .form-group {
+    margin-bottom: 1.5rem;
+}
+.profile-forms label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.profile-forms input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+

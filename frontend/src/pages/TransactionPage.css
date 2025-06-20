@@ -1,0 +1,80 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+.filters-container input, .filters-container select {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border-radius: 8px;
+}
+.filters-container input {
+    flex-grow: 1;
+}
+
+.transactions-list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.transactions-list th {
+    padding: 1rem;
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border-color);
+}
+.transactions-list td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transactions-list tr:last-child td {
+    border-bottom: none;
+}
+.transactions-list tbody tr:hover {
+    background-color: var(--border-color);
+}
+
+
+.type-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: var(--background-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.type-badge.income { background-color: var(--secondary-accent); }
+.type-badge.expense { background-color: var(--error-accent); }
+
+.amount-income { color: var(--secondary-accent); font-weight: bold; }
+.amount-expense { color: var(--error-accent); font-weight: bold; }
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.btn-icon:hover {
+    opacity: 1;
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}

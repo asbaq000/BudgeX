@@ -1,0 +1,14 @@
+[build]
+  # This command runs the script from our root package.json
+  command = "npm run build"
+  # Directory where the built frontend is located
+  publish = "frontend/build"
+  # Directory for our serverless function
+  functions = "netlify/functions"
+
+[[redirects]]
+  # This rule rewrites all API calls from the frontend...
+  from = "/api/*"
+  # ...to our single serverless function.
+  to = "/.netlify/functions/api/:splat"
+  status = 200

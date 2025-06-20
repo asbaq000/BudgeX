@@ -1,0 +1,126 @@
+.dashboard h1 {
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.summary-cards .card {
+    text-align: left;
+    border-left: 4px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+.summary-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+}
+
+.summary-cards .card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+.summary-cards .card p {
+    margin: 0;
+    font-size: 2.25rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+.summary-cards .card.balance { border-left-color: var(--primary-accent); }
+.summary-cards .card.balance p { color: var(--primary-accent); }
+
+.summary-cards .card.income { border-left-color: var(--secondary-accent); }
+.summary-cards .card.income p { color: var(--secondary-accent); }
+
+.summary-cards .card.expense { border-left-color: var(--error-accent); }
+.summary-cards .card.expense p { color: var(--error-accent); }
+
+.dashboard-main {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    /* align-items: start; <-- REMOVING THIS LINE LETS ITEMS STRETCH TO THE SAME HEIGHT */
+}
+@media (max-width: 992px) {
+    .dashboard-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chart-container.card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 450px; /* This fixed height prevents the chart from crashing */
+}
+
+.chart-container h3 {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.chart-wrapper {
+    position: relative; 
+    flex-grow: 1; 
+    width: 100%;
+    min-height: 0; 
+}
+
+
+.no-data {
+    color: var(--text-secondary);
+}
+
+/* --- THIS IS THE KEY FIX --- */
+/* Apply flex layout to the AI card to control its inner content */
+.ai-advice.card {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+}
+
+.ai-advice h3, .recent-transactions h3 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0; /* Prevent the title from shrinking */
+}
+
+/* Make the advice text scrollable if it's too long */
+.ai-advice p {
+    white-space: pre-wrap;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    overflow-y: auto; /* Add a scrollbar if content overflows */
+    flex-grow: 1; /* Allow the text area to fill available space */
+}
+
+
+.recent-transactions ul {
+    list-style: none;
+    padding: 0;
+}
+.recent-transactions li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+.recent-transactions li:hover {
+    background-color: var(--border-color);
+}
+.recent-transactions li span:last-child {
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+.recent-transactions li.income span:last-child { color: var(--secondary-accent); }
+.recent-transactions li.expense span:last-child { color: var(--error-accent); }
