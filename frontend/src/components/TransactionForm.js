@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import api from '../services/api';
 import './TransactionForm.css';
 
 const TransactionForm = ({ transactionToEdit, onFormSubmit, onCancel }) => {
-  const initialState = {
+  const initialState = useMemo(() => ({
     title: '',
     amount: '',
     category: 'Other',
     date: new Date().toISOString().split('T')[0],
     type: 'expense',
     notes: '',
-  };
+  }), []);
   
   const [transaction, setTransaction] = useState(initialState);
   const [error, setError] = useState('');
@@ -24,7 +24,8 @@ const TransactionForm = ({ transactionToEdit, onFormSubmit, onCancel }) => {
     } else {
       setTransaction(initialState);
     }
-  }, [transactionToEdit]);
+
+  }, [transactionToEdit, initialState]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
