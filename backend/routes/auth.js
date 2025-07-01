@@ -84,7 +84,7 @@ router.post('/forgot-password', async (req, res) => {
         const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
         
         
-        const resetUrl = `${process.env.CLIENT_URL || 'http://localhost:3000'}/reset-password/${resetToken}`;
+        const resetUrl = `${process.env.CLIENT_URL || 'https://budgex.netlify.app'}/reset-password/${resetToken}`;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
